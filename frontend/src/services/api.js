@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let rawApiUrl = import.meta.env.VITE_API_URL || '/api';
+let rawApiUrl = import.meta.env.VITE_API_URL || 'https://klenty-project-1.onrender.com/api';
 if (rawApiUrl !== '/api' && !rawApiUrl.endsWith('/api') && !rawApiUrl.endsWith('/api/')) {
   if (rawApiUrl.endsWith('/')) {
     rawApiUrl = rawApiUrl + 'api';
