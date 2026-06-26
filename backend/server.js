@@ -79,8 +79,28 @@ const startServer = async () => {
       }
       res.sendFile(path.join(frontendDistPath, 'index.html'), (err) => {
         if (err) {
-          console.error(`❌ Error sending index.html to client from ${frontendDistPath}:`, err.message || err);
-          next();
+          res.status(200).send(`
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <title>SprintHub API Engine</title>
+                <style>
+                  body { font-family: system-ui, -apple-system, sans-serif; background: #0f0f1a; color: #e5e7eb; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; }
+                  .card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 2.5rem; border-radius: 1.5rem; max-width: 450px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); }
+                  h1 { background: linear-gradient(135deg, #a78bfa, #22d3ee); -webkit-background-clip: text; -webkit-text-fillColor: transparent; margin: 0 0 0.5rem 0; font-size: 1.75rem; font-weight: 800; }
+                  p { color: #9ca3af; font-size: 0.875rem; line-height: 1.5; margin: 0 0 1.5rem 0; }
+                  .tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; background: rgba(16, 185, 129, 0.1); color: #10b981; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5rem; }
+                </style>
+              </head>
+              <body>
+                <div class="card">
+                  <span class="tag">Online</span>
+                  <h1>SprintHub API Engine</h1>
+                  <p>The backend server is running successfully! If you deployed the frontend to Vercel, please access your portal using your Vercel deployment link.</p>
+                </div>
+              </body>
+            </html>
+          `);
         }
       });
     });
