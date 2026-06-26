@@ -35,13 +35,14 @@ const startServer = async () => {
     }));
     app.use(morgan('dev'));
     
-    // CORS configuration
-    const corsOptions = {
-      origin: [process.env.FRONTEND_URL || 'http://localhost:306', 'http://localhost:5173', 'http://localhost:3000'],
+    // CORS configuration (Dynamic origin reflection to prevent Vercel cross-domain blocks)
+    app.use(cors({
+      origin: (origin, callback) => {
+        callback(null, true);
+      },
       credentials: true,
       optionsSuccessStatus: 200
-    };
-    app.use(cors(corsOptions));
+    }));
     
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
