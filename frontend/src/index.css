@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base Styles ─────────────────────────────────────────────────────────── */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ── Glassmorphism Card ───────────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 231, 235, 0.50);
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+  border-radius: 1rem;
+}
+
+.dark .glass-card {
+  background: rgba(30, 30, 46, 0.70);
+  border: 1px solid rgba(31, 41, 55, 0.40);
+}
+
+/* ── Glass Panel (Sidebar) ───────────────────────────────────────────────── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.40);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(229, 231, 235, 0.30);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 15, 26, 0.40);
+  border-right: 1px solid rgba(31, 41, 55, 0.30);
+}
+
+/* ── Glass Input ─────────────────────────────────────────────────────────── */
+.glass-input {
+  background: rgba(255, 255, 255, 0.50);
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: inherit;
+  width: 100%;
+}
+
+.dark .glass-input {
+  background: rgba(26, 26, 46, 0.50);
+  border-color: #1f2937;
+  color: #e5e7eb;
+}
+
+.glass-input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.20);
+}
+
+/* ── Gradient Button ─────────────────────────────────────────────────────── */
+.btn-gradient {
+  background: linear-gradient(to right, #7c3aed, #0891b2);
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.20);
+  transform: translateY(0);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(to right, #6d28d9, #0e7490);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.25);
+}
+
+.btn-gradient:active {
+  transform: translateY(0);
+}
+
+/* ── Secondary Gradient Button ───────────────────────────────────────────── */
+.btn-gradient-secondary {
+  background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+  color: #1f2937;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: 1px solid rgba(209, 213, 219, 0.30);
+  transform: translateY(0);
+  cursor: pointer;
+}
+
+.btn-gradient-secondary:hover {
+  background: linear-gradient(to right, #e5e7eb, #d1d5db);
+  transform: translateY(-2px);
+}
+
+.btn-gradient-secondary:active {
+  transform: translateY(0);
+}
+
+.dark .btn-gradient-secondary {
+  background: linear-gradient(to right, #16213e, #1a1a2e);
+  color: #e5e7eb;
+  border-color: rgba(55, 65, 81, 0.30);
+}
+
+.dark .btn-gradient-secondary:hover {
+  background: linear-gradient(to right, #1a1a2e, #16213e);
+}
+
+/* ── Custom Scrollbars ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.4);
+}
+
+.kanban-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.kanban-scroll::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.2);
+  border-radius: 8px;
+}
+
+/* ── React Big Calendar Overrides ────────────────────────────────────────── */
+.rbc-calendar {
+  font-family: 'Inter', system-ui, sans-serif;
+  border-radius: 1rem;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.rbc-header {
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4b5563;
+  border-bottom: 1px solid #e5e7eb;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dark .rbc-header {
+  color: #d1d5db;
+  border-bottom-color: #1f2937;
+}
+
+.rbc-month-view {
+  border: 0 !important;
+}
+
+.rbc-day-bg {
+  border-color: #f3f4f6;
+}
+
+.dark .rbc-day-bg {
+  border-color: rgba(31, 41, 55, 0.4);
+}
+
+.rbc-today {
+  background-color: rgba(245, 243, 255, 0.5) !important;
+}
+
+.dark .rbc-today {
+  background-color: rgba(109, 40, 217, 0.1) !important;
+}
+
+.rbc-event {
+  background-color: #7c3aed !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 2px 8px !important;
+  font-size: 0.75rem !important;
+  border: 0 !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+  transition: all 0.15s !important;
+}
+
+.rbc-event:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15) !important;
+}
+
+.rbc-month-row {
+  border-bottom: 1px solid #f3f4f6 !important;
+}
+
+.dark .rbc-month-row {
+  border-bottom-color: rgba(31, 41, 55, 0.4) !important;
+}
+
+.rbc-show-more {
+  color: #8b5cf6;
+  font-weight: 500;
+}
+
+.rbc-show-more:hover {
+  color: #7c3aed;
+}
+
+.rbc-off-range-bg {
+  background-color: rgba(249, 250, 251, 0.3) !important;
+}
+
+.dark .rbc-off-range-bg {
+  background-color: rgba(15, 15, 26, 0.3) !important;
+}
+
+/* ── Aurora Background ───────────────────────────────────────────────────── */
+.aurora-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(34, 211, 238, 0.08) 0%, transparent 40%);
+}
+
+.dark .aurora-bg {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(34, 211, 238, 0.12) 0%, transparent 50%),
+    #0f0f1a;
+}
