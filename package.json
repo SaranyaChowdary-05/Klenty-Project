@@ -9,6 +9,7 @@
     "build:frontend": "npm run build --prefix frontend",
     "build": "npm run build:frontend",
     "start": "node backend/server.js",
-    "production": "npm run build && npm run start"
+    "production": "npm run build && npm run start",
+    "postinstall": "npm run install:backend"
   }
 }
